@@ -1,0 +1,24 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CarouselItem {
+  id    String @id @default(cuid())
+  next  String
+  prev  String
+  bgUrl String
+}
+
+model Product {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  image       String
+  price       Float
+}

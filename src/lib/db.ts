@@ -1,11 +1,11 @@
 import { Pool } from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "@prisma/client";
 
-const pool = new Pool({
-  host: process.env.PG_HOST || "localhost", // your PostgreSQL host
-  user: process.env.PG_USER || "postgres", // your PostgreSQL username
-  password: process.env.PG_PASSWORD || "password", // your PostgreSQL password
-  database: process.env.PG_DATABASE || "mydatabase", // your PostgreSQL database name
-  port: process.env.PG_PORT ? Number(process.env.PG_PORT) : 5432, // your PostgreSQL port
-});
+const connectionString = `${process.env.DATABASE_URL}`;
 
-export default pool;
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+const dbClient = new PrismaClient({ adapter });
+
+export default dbClient;
