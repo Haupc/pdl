@@ -1,15 +1,9 @@
 // src/app/products/page.tsx
 // import pool from "@/lib/db";
 // import Image from "next/image";
-import Navbar from "./components/Navabar";
+import { Product } from "@/types/types";
 import Carousel from "./components/Carousel";
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-}
+import Navbar from "./components/Navbar";
 
 const ProductList = ({ products }: { products: Product[] }) => {
   return (

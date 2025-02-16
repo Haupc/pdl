@@ -1,3 +1,5 @@
+import { CarouselItem } from "@/types/types";
+
 const Carousel = () => {
   const listCarousel = [
     {
@@ -28,7 +30,7 @@ const Carousel = () => {
       style={{ maxWidth: "1600px" }}
     >
       <div className="carousel-inner relative overflow-hidden w-full">
-        {listCarousel.map((carousel: any, index: number) => (
+        {listCarousel.map((carousel: CarouselItem, index: number) => (
           <div key={carousel.id}>
             <input
               className="carousel-open"
@@ -84,7 +86,7 @@ const Carousel = () => {
         ))}
 
         <ol className="carousel-indicators">
-          {listCarousel.map((carousel: any) => (
+          {listCarousel.map((carousel: CarouselItem) => (
             <li className="inline-block mr-3" key={carousel.id}>
               <label
                 htmlFor={carousel.id}
