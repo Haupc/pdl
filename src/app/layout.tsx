@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
+
+const workSansFont = Work_Sans({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={workSansFont.className}>{children}</body>
     </html>
   );
 }
